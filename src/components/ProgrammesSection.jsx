@@ -93,7 +93,9 @@ const catalogCards = [
   },
 ];
 
-function SingleCourseCard({ card, onOpenEnquiry }) {
+function SingleCourseCard({ card, onOpenEnquiry, index = 0 }) {
+  const isEager = index < 3;
+
   return (
     <div
       data-cursor="explore"
@@ -101,11 +103,12 @@ function SingleCourseCard({ card, onOpenEnquiry }) {
     >
       <div>
         {/* Astutis Card Image Header with Orange Corner Accent */}
-        <div className="relative h-52 w-full overflow-hidden bg-slate-900">
+        <div className="relative h-52 w-full overflow-hidden bg-slate-100">
           <img
             src={card.image}
             alt={card.title}
-            loading="lazy"
+            loading={isEager ? "eager" : "lazy"}
+            fetchPriority={isEager ? "high" : "auto"}
             decoding="async"
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-100 filter contrast-105 saturate-105"
           />
@@ -262,11 +265,12 @@ export default function ProgrammesSection({ onOpenEnquiry }) {
 
         {/* Desktop & Tablet: Multi-Column Responsive Grid (3 Cols on Desktop, 2 on Tablet) */}
         <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-          {visibleCards.map((card) => (
+          {visibleCards.map((card, idx) => (
             <SingleCourseCard
               key={card.id}
               card={card}
               onOpenEnquiry={onOpenEnquiry}
+              index={idx}
             />
           ))}
         </div>
@@ -278,7 +282,7 @@ export default function ProgrammesSection({ onOpenEnquiry }) {
             onScroll={handleScroll}
             className="flex gap-4 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-3 -mx-4 px-4 scroll-smooth"
           >
-            {visibleCards.map((card) => (
+            {visibleCards.map((card, idx) => (
               <div
                 key={card.id}
                 className="w-[84vw] max-w-[320px] shrink-0 snap-center"
@@ -286,6 +290,7 @@ export default function ProgrammesSection({ onOpenEnquiry }) {
                 <SingleCourseCard
                   card={card}
                   onOpenEnquiry={onOpenEnquiry}
+                  index={idx}
                 />
               </div>
             ))}

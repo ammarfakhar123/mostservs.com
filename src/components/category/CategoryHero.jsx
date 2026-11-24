@@ -36,6 +36,7 @@ export default function CategoryHero({ category }) {
             src={bgImage}
             alt={displayTitle}
             fetchPriority="high"
+            loading="eager"
             decoding="async"
             className="w-full h-full object-cover object-center lg:object-right filter contrast-105 saturate-110 brightness-95"
           />

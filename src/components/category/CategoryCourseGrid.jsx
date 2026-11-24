@@ -28,21 +28,25 @@ export default function CategoryCourseGrid({ categorySlug, categoryTitle }) {
 
         {/* Astutis 3-Column Course Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {categoryCourses.map((c, idx) => (
-            <div
-              key={c.slug}
-              className="bg-white rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden group hover:-translate-y-1"
-            >
-              <div>
-                {/* Astutis Card Image Header with Orange Corner Accent */}
-                <div className="relative h-52 w-full overflow-hidden bg-slate-900">
-                  <img
-                    src={getCourseImage(c.slug, c.categorySlug)}
-                    alt={c.title}
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-100 filter contrast-105 saturate-105"
-                  />
+          {categoryCourses.map((c, idx) => {
+            const isEager = idx < 6;
+
+            return (
+              <div
+                key={c.slug}
+                className="bg-white rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden group hover:-translate-y-1"
+              >
+                <div>
+                  {/* Astutis Card Image Header with Orange Corner Accent */}
+                  <div className="relative h-52 w-full overflow-hidden bg-slate-100">
+                    <img
+                      src={getCourseImage(c.slug, c.categorySlug)}
+                      alt={c.title}
+                      loading={isEager ? "eager" : "lazy"}
+                      fetchPriority={isEager ? "high" : "auto"}
+                      decoding="async"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-100 filter contrast-105 saturate-105"
+                    />
                   {/* Astutis orange geometric curved corner accent */}
                   <div
                     className="absolute -bottom-1 -right-1 w-24 h-24 rounded-tl-full opacity-90 pointer-events-none"
@@ -104,7 +108,8 @@ export default function CategoryCourseGrid({ categorySlug, categoryTitle }) {
                 </Link>
               </div>
             </div>
-          ))}
+          );
+        })}
         </div>
       </div>
     </section>

@@ -15,6 +15,9 @@ export default function ContactHero({ onOpenEnquiry }) {
         <img
           src={contactHeroImg}
           alt="MOST Services Islamabad Admissions and Student Support"
+          fetchPriority="high"
+          loading="eager"
+          decoding="async"
           className="w-full h-full object-cover object-center lg:object-right filter contrast-105 saturate-110 brightness-95"
         />
         {/* Subtle Warm Amber Industrial Glow */}

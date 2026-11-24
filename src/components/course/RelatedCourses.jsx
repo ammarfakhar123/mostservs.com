@@ -46,11 +46,12 @@ export default function RelatedCourses({ currentSlug, categorySlug }) {
               className="bg-white rounded-2xl border border-slate-200 shadow-xs hover:shadow-lg transition-all flex flex-col justify-between overflow-hidden group hover:-translate-y-1"
             >
               <div>
-                <div className="relative h-48 w-full overflow-hidden bg-slate-900">
+                <div className="relative h-48 w-full overflow-hidden bg-slate-100">
                   <img
                     src={getCourseImage(c.slug, c.categorySlug)}
                     alt={c.title}
-                    loading="lazy"
+                    loading="eager"
+                    fetchPriority="high"
                     decoding="async"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-100 filter contrast-105 saturate-105"
                   />

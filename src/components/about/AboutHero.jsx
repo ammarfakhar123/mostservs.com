@@ -15,6 +15,9 @@ export default function AboutHero({ onOpenEnquiry }) {
         <img
           src={aboutHeroImg}
           alt="MOST Services Headquarters and Professional Team"
+          fetchPriority="high"
+          loading="eager"
+          decoding="async"
           className="w-full h-full object-cover object-center lg:object-right filter contrast-105 saturate-110 brightness-95"
         />
         {/* Subtle Warm Amber Industrial Glow */}

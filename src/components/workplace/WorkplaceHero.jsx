@@ -21,6 +21,9 @@ export default function WorkplaceHero({
         <img
           src={corporateHeroImg}
           alt={title}
+          fetchPriority="high"
+          loading="eager"
+          decoding="async"
           className="w-full h-full object-cover object-center lg:object-right filter contrast-105 saturate-110 brightness-95"
         />
         {/* Subtle Warm Amber Industrial Glow */}

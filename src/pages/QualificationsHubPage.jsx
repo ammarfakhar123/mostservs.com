@@ -34,6 +34,7 @@ export default function QualificationsHubPage({ onOpenEnquiry }) {
             src={hseBannerImg}
             alt="Regulated UK &amp; International Qualifications"
             fetchPriority="high"
+            loading="eager"
             decoding="async"
             className="w-full h-full object-cover object-center lg:object-right filter contrast-105 saturate-110 brightness-95"
           />
@@ -169,6 +170,7 @@ export default function QualificationsHubPage({ onOpenEnquiry }) {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {allCourses.map((c, idx) => {
               const courseImg = getCourseImage(c.slug, c.categorySlug);
+              const isEager = idx < 6;
 
               return (
                 <div
@@ -177,11 +179,12 @@ export default function QualificationsHubPage({ onOpenEnquiry }) {
                 >
                   <div>
                     {/* Astutis Card Image Header with Orange Corner Accent */}
-                    <div className="relative h-52 w-full overflow-hidden bg-slate-900">
+                    <div className="relative h-52 w-full overflow-hidden bg-slate-100">
                       <img
                         src={courseImg}
                         alt={c.title}
-                        loading="lazy"
+                        loading={isEager ? "eager" : "lazy"}
+                        fetchPriority={isEager ? "high" : "auto"}
                         decoding="async"
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-100 filter contrast-105 saturate-105"
                       />

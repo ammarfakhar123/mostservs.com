@@ -15,6 +15,9 @@ export default function TaxSecpHero({ onOpenEnquiry }) {
         <img
           src={corporateImg}
           alt="SECP Corporate Registration and FBR Compliance"
+          fetchPriority="high"
+          loading="eager"
+          decoding="async"
           className="w-full h-full object-cover object-center lg:object-right filter contrast-105 saturate-110 brightness-95"
         />
         {/* Subtle Warm Amber Industrial Glow */}

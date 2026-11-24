@@ -1,0 +1,364 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: auto;
+  }
+  html.lenis, html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+  .lenis.lenis-scrolling iframe {
+    pointer-events: none;
+  }
+  body {
+    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
+    color: #0f172a;
+    background-color: #ffffff;
+    overflow-x: hidden;
+  }
+}
+
+@layer utilities {
+  /* Crisp Figma Dark Card: Deep Obsidian Navy */
+  .dark-card {
+    background: #070e1a;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1rem;
+    box-shadow: 0 20px 40px -15px rgba(2, 6, 18, 0.45);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .dark-card:hover {
+    border-color: rgba(75, 158, 255, 0.35);
+    box-shadow: 0 25px 50px -12px rgba(15, 123, 255, 0.2), 0 0 0 1px rgba(75, 158, 255, 0.2);
+    transform: translateY(-3px);
+  }
+
+  /* Interactive Pill Buttons */
+  .pill-dark {
+    background: #0b1324;
+    color: #e2e8f0;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    transition: all 0.25s ease;
+  }
+
+  .pill-dark:hover {
+    background: #111d38;
+    border-color: rgba(75, 158, 255, 0.4);
+    color: #ffffff;
+    transform: translateY(-1.5px);
+    box-shadow: 0 6px 16px rgba(15, 123, 255, 0.25);
+  }
+
+  /* Astutis Signature Pill Buttons */
+  .pill-astutis {
+    background: #0f7bff;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.8125rem;
+    padding: 0.625rem 1.25rem;
+    border-radius: 9999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 14px rgba(15, 123, 255, 0.35);
+  }
+
+  .pill-astutis:hover {
+    background: #0066eb;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(15, 123, 255, 0.5);
+  }
+
+  .pill-astutis-outline {
+    background: #ffffff;
+    color: #0f172a;
+    font-weight: 700;
+    font-size: 0.8125rem;
+    padding: 0.625rem 1.25rem;
+    border-radius: 9999px;
+    border: 1.5px solid #cbd5e1;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.25s ease;
+  }
+
+  .pill-astutis-outline:hover {
+    border-color: #0f7bff;
+    color: #0f7bff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(15, 123, 255, 0.15);
+  }
+
+  /* Figma Primary Electric Blue Button */
+  .btn-primary {
+    background: #0f7bff;
+    color: #ffffff;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    box-shadow: 0 8px 22px -4px rgba(15, 123, 255, 0.45);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-primary:hover {
+    background: #0066eb;
+    box-shadow: 0 12px 28px -4px rgba(15, 123, 255, 0.6);
+    transform: translateY(-1.5px);
+  }
+
+  .btn-primary:active {
+    transform: translateY(0.5px);
+  }
+
+  /* Shimmer effect for buttons */
+  .btn-primary::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 40%;
+    height: 200%;
+    background: linear-gradient(
+      60deg,
+      transparent,
+      rgba(255, 255, 255, 0.25),
+      transparent
+    );
+    transform: rotate(25deg);
+    transition: all 0.6s ease;
+  }
+
+  .btn-primary:hover::after {
+    left: 140%;
+  }
+
+  /* Interactive Light Card Lift */
+  .card-lift {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .card-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 8px 10px -6px rgba(15, 23, 42, 0.1);
+  }
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseBeacon {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.35);
+    opacity: 0.55;
+  }
+}
+
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes floatDelayed {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+@keyframes softGlow {
+  0%, 100% {
+    opacity: 0.18;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.28;
+    transform: scale(1.05);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-up {
+  animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-beacon {
+  animation: pulseBeacon 2s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: floatGentle 4s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: floatDelayed 4.5s ease-in-out 1s infinite;
+}
+
+.animate-soft-glow {
+  animation: softGlow 5s ease-in-out infinite;
+}
+
+/* Accessibility: Respect Reduced Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Hide scrollbar for Chrome, Safari, Opera, Edge, Firefox */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinReverseSlow {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes morphShape {
+  0%, 100% {
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+    transform: rotate(0deg) scale(1);
+  }
+  33% {
+    border-radius: 70% 30% 46% 54% / 30% 29% 71% 70%;
+    transform: rotate(120deg) scale(1.05);
+  }
+  66% {
+    border-radius: 30% 70% 50% 50% / 50% 30% 70% 50%;
+    transform: rotate(240deg) scale(0.95);
+  }
+}
+
+@keyframes driftSlow {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(25px, -20px);
+  }
+}
+
+@keyframes shapeFloatA {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-16px) rotate(4deg);
+  }
+}
+
+@keyframes shapeFloatB {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-22px) rotate(-5deg);
+  }
+}
+
+@keyframes pulseGlowRing {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.35;
+  }
+  50% {
+    transform: scale(1.12);
+    opacity: 0.65;
+  }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 35s linear infinite;
+}
+
+.animate-spin-reverse-slow {
+  animation: spinReverseSlow 40s linear infinite;
+}
+
+.animate-morph {
+  animation: morphShape 14s ease-in-out infinite;
+}
+
+.animate-drift {
+  animation: driftSlow 10s ease-in-out infinite;
+}
+
+.animate-shape-a {
+  animation: shapeFloatA 6s ease-in-out infinite;
+}
+
+.animate-shape-b {
+  animation: shapeFloatB 7.5s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlowRing 4s ease-in-out infinite;
+}

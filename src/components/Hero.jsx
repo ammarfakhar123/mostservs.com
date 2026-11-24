@@ -80,6 +80,8 @@ export default function Hero({ onOpenEnquiry }) {
                   <img
                     src={heroSeminarImg}
                     alt="NEBOSH and OTHM Classroom Training"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover opacity-85 group-hover:scale-105 transition-transform duration-700"
                   />
                   {/* Gradient vignette */}

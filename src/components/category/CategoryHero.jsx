@@ -35,6 +35,8 @@ export default function CategoryHero({ category }) {
           <img
             src={bgImage}
             alt={displayTitle}
+            fetchPriority="high"
+            decoding="async"
             className="w-full h-full object-cover object-center lg:object-right filter contrast-105 saturate-110 brightness-95"
           />
           {/* Astutis Signature Warm Amber Industrial Glow */}

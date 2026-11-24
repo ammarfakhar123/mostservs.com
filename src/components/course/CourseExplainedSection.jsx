@@ -53,6 +53,8 @@ export default function CourseExplainedSection({ course, onOpenEnquiry }) {
                 <img
                   src={getCourseImage(course.slug, course.categorySlug)}
                   alt={`${courseTitle} practical training and assessment`}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-100 filter contrast-105 saturate-105"
                 />
                 <div

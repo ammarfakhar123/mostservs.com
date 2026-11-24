@@ -122,6 +122,8 @@ export default function LearningModes({ onOpenEnquiry }) {
               <img
                 src={current.image}
                 alt={current.title}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover opacity-80"
               />
               <div

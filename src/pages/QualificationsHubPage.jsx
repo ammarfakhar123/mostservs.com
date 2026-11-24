@@ -33,6 +33,8 @@ export default function QualificationsHubPage({ onOpenEnquiry }) {
           <img
             src={hseBannerImg}
             alt="Regulated UK &amp; International Qualifications"
+            fetchPriority="high"
+            decoding="async"
             className="w-full h-full object-cover object-center lg:object-right filter contrast-105 saturate-110 brightness-95"
           />
           {/* Subtle Warm Amber Industrial Glow */}
@@ -179,6 +181,8 @@ export default function QualificationsHubPage({ onOpenEnquiry }) {
                       <img
                         src={courseImg}
                         alt={c.title}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-100 filter contrast-105 saturate-105"
                       />
                       {/* Astutis orange geometric curved corner accent */}
